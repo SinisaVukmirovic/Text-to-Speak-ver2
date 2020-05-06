@@ -1,0 +1,36 @@
+body {
+    background-color: #222;
+    color: #ddd;
+    font-family: sans-serif;
+}
+
+.app {
+    width: 90%;
+    max-width: 30rem;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#textInput {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 1rem .5rem;
+}
+
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+    label, input, button {
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        font-family: impact;
+    }
+    button {
+        cursor: pointer;
+    }
