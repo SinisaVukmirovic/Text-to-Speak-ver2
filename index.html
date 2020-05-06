@@ -7,12 +7,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <header>
+        <h1>Text to Speech ver2</h1>
+    </header>
     
     <div class="app">
+        <img id="robotImg" src="img/robot.jpg" alt="Image of Talking Robot">
+
         <textarea id="textInput"rows="5"></textarea>
 
         <div class="controls">
-            <div>
+            <div class="speed">
                 <label for="speedInput">Speed</label>
                 <input id="speedInput" type="number" name="speedInput" min=".5" max="3" step=".5" value="1">
             </div>  
@@ -21,6 +27,10 @@
             <button id="stopBtn">Stop</button>
         </div>
     </div>
+
+    <footer>
+        <p>To learn more about Speech API click <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API" target="_blank">here.</a></p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

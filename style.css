@@ -1,7 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
 body {
     background-color: #222;
     color: #ddd;
     font-family: sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    padding: 1.5rem;
+    background-color: royalblue;    
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 0 10px #000;
 }
 
 .app {
@@ -12,6 +34,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#robotImg {
+    width: 100%;
+    padding: 1rem 0;
 }
 
 #textInput {
@@ -26,11 +53,42 @@ body {
     justify-content: space-between;
     padding: 1rem 0;
 }
-    label, input, button {
-        padding: .5rem 1rem;
+    .speed {
+        flex-grow: 2;
+    }
+    input, button {
+        flex-grow: 1;
+        margin-left: .5rem;
+        padding: .5rem;
         font-size: 1rem;
         font-family: impact;
     }
     button {
         cursor: pointer;
     }
+
+footer {
+    background-color: royalblue;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 0 10px #000;
+}
+    footer a {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    footer a:hover {
+        color: inherit;
+    }
+
+@media only screen and (max-width: 960px) {
+    html {
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 414px) {
+    html {
+        font-size: 12px;
+    }
+}

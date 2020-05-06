@@ -5,6 +5,8 @@ const stopBtn = document.getElementById('stopBtn');
 const textInput = document.getElementById('textInput');
 const speedInput = document.getElementById('speedInput');
 
+let robotImg = document.getElementById('robotImg');
+
 // keeping track of current character so that we can know where the speech is at,
 // if we change the speed rate while speaking
 let currentChar;
@@ -31,6 +33,8 @@ const utterance = new SpeechSynthesisUtterance();
 // anabling text input when speach is done
 utterance.addEventListener('end', () => {
     textInput.disabled = false;
+
+    robotImg.src = 'img/robot.jpg';
 });
 
 utterance.addEventListener('boundary', e => {
@@ -40,12 +44,15 @@ utterance.addEventListener('boundary', e => {
 function speakText(text) {
     // checking if speach is in progress and handling resule
     if (speechSynthesis.paused && speechSynthesis.speaking) {
+        robotImg.src = 'img/robot-talking.gif';
         // its important to return here, othervise it would start a new speach
         return speechSynthesis.resume();
     }
 
     // checking if speech is in progress to prevent duble playing is play btn is clicked again
     if (speechSynthesis.speaking) return;
+
+    robotImg.src = 'img/robot-talking.gif';
 
     utterance.text = text;
 
@@ -65,6 +72,8 @@ function speakText(text) {
 
 function pauseSpeech() {
     if (speechSynthesis.speaking) speechSynthesis.pause();
+
+    robotImg.src = 'img/robot.jpg';
 }
 
 function stopSpeech() {
@@ -72,4 +81,6 @@ function stopSpeech() {
     // before canceling it imediatelly after
     speechSynthesis.resume();
     speechSynthesis.cancel();
+
+    robotImg.src = 'img/robot.jpg';
 }
