@@ -7,6 +7,8 @@ const speedInput = document.getElementById('speedInput');
 
 let robotImg = document.getElementById('robotImg');
 
+let curseWords = ['fuck', 'shit', 'pussy', 'dick', 'cock', 'tits', 'cunt', 'fucking', 'blowjob'];
+
 // keeping track of current character so that we can know where the speech is at,
 // if we change the speed rate while speaking
 let currentChar;
@@ -42,6 +44,14 @@ utterance.addEventListener('boundary', e => {
 });
 
 function speakText(text) {
+    if (curseWords.includes(text.toLowerCase())) {
+        robotImg.classList.add('cursing');
+        setTimeout(() => {
+            robotImg.classList.remove('cursing');
+        }, 1000);
+        return;
+    }
+
     // checking if speach is in progress and handling resule
     if (speechSynthesis.paused && speechSynthesis.speaking) {
         robotImg.src = 'img/robot-talking.gif';
@@ -84,3 +94,17 @@ function stopSpeech() {
 
     robotImg.src = 'img/robot.jpg';
 }
+
+
+
+
+
+
+
+
+
+
+
+robotImg.addEventListener('click', () => {
+    robotImg.classList.add('cursing');
+});
