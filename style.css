@@ -10,6 +10,9 @@ html {
 
 body {
     background-color: #222;
+    background-image: url('img/sm-grad.jpg');
+    background-position: center 10vh;
+    background-size: cover;
     color: #ddd;
     font-family: sans-serif;
     min-height: 100vh;
@@ -29,7 +32,7 @@ header {
 .app {
     width: 90%;
     max-width: 30rem;
-    margin: 3rem auto;
+    margin: 5rem auto 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,10 +42,9 @@ header {
 }
 
 #robotImg {
-    width: 100%;
+    width: 70%;
     padding: 1rem 0;
     border-radius: 50%;
-
     transform-origin: center;
 }
     #robotImg.cursing {
@@ -56,9 +58,15 @@ header {
 
 #textInput {
     width: 100%;
+    background: #111;
+    color: inherit;
+    border: 1px solid #ddd;
     font-size: 1.5rem;
     padding: 1rem .5rem;
 }
+    #textInput:disabled {
+        opacity: .5;
+    }
 
 .controls {
     width: 100%;
@@ -78,7 +86,43 @@ header {
     }
     button {
         cursor: pointer;
+        outline: none;
+        border: 2px solid #222;
+        transition: all .25s ease-in-out;
     }
+        button:active {
+            transform: scale(.95);
+        }
+        button:hover {
+            filter: brightness(90%);
+        }
+        button:nth-child(2) {background: lime;}
+        button:nth-child(3) {background: cornflowerblue;}
+        button:nth-child(4) {background: coral;}
+
+    .no-cursing {
+        background: crimson;
+        color: #fff;
+        padding: .5rem 1rem;
+        border-radius: .25rem;
+        margin-top: 2rem;
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+@keyframes pulse {
+    0% {
+        transform: scale(.98);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+    }
+    75% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 15px rgba(255, 0, 0, 0);
+    }
+    100% {
+        transform: scale(.98);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+}
 
 footer {
     background-color: royalblue;

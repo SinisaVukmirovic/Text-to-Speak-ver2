@@ -94,17 +94,3 @@ function stopSpeech() {
 
     robotImg.src = 'img/robot.jpg';
 }
-
-
-
-
-
-
-
-
-
-
-
-robotImg.addEventListener('click', () => {
-    robotImg.classList.add('cursing');
-});
